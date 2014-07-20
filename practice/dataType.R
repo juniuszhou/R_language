@@ -12,12 +12,11 @@ names
 bools <- c(TRUE, FALSE)
 bools
 
-<<<<<<< HEAD
-=======
+
 namedVector <- c(a=1, b=2)
 names(namedVector)
 
->>>>>>> add basic files
+
 # Accessing the 1st and last elements of y --
 # in R, the index start from 1. get first one and last one.
 (y[1])

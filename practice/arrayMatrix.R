@@ -12,8 +12,7 @@ m
 # _____________________________________________________
 n
 
-<<<<<<< HEAD
-=======
+
 # create matrix
 m1 <- matrix(1:12, nrow=3, ncol=4)
 m1
@@ -21,4 +20,4 @@ m1
 t(m1)
 rownames(m1, prefix="rows")
 colnames(m1, prefix="cols")
->>>>>>> add basic files
+
