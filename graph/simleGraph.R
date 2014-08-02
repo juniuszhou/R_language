@@ -1,33 +1,62 @@
-# Goal: To make a panel of pictures.
 
-par(mfrow=c(3,2))                       # 3 rows, 2 columns.
+x <- rnorm(1000)
+hx <- hist(x, breaks=100, plot=FALSE)
+plot(hx, col=ifelse(abs(hx$breaks) < 1.669, 4, 2))
 
-# Now the next 6 pictures will be placed on these 6 regions. :-)
+# hist
+x <- 1:6
+x
+plot(x)
 
-# Let me take some pains on the 1st
-plot(density(runif(100)), lwd=2)
-text(x=0, y=0.2, "100 uniforms")        # Showing you how to place text at will
-abline(h=0, v=0)
-              # All these statements effect the 1st plot.
+par(mfrow=c(1,2))
+x <- round(runif(200,min=60,max=100))
+hist(x)
+y <- round(rnorm(200,mean=80,sd=20))
+hist(y)
 
-x=seq(0.01,1,0.01)
-par(col="blue")                         # default colour to blue.
+# table
+x <- round(runif(20,min=60,max=100))
+table(x)
+barplot(table(x))
 
-# 2 --
-plot(x, sin(x), type="l")
-lines(x, cos(x), type="l", col="red")
+# pie
+x <- round(runif(20,min=60,max=100))
+table(x)
+pie(table(x))
 
-# 3 --
-plot(x, exp(x), type="l", col="green")
-lines(x, log(x), type="l", col="orange")
 
-# 4 --
-plot(x, tan(x), type="l", lwd=3, col="yellow")
 
-# 5 --
-plot(x, exp(-x), lwd=2)
-lines(x, exp(x), col="green", lwd=3)
+# attach data to graph
+mtcars
+attach(mtcars)
+# draw each point
+plot(wt, mpg)
+# get the linear regression and draw the line.
+abline(lm(mpg~wt))
+title("regression ")
+detach(mtcars)
 
-# 6 --
-plot(x, sin(x*x), type="l")
-lines(x, sin(1/x), col="pink")
+# save graph in different format
+pdf()
+dev.off()
+win.metafile()
+png()
+jpeg()
+bmp()
+tiff()
+xfig()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

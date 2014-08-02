@@ -10,6 +10,13 @@ person
 person$name
 person$x
 
+q <- list(1,2,3)
+q
+# pairlist
+p <- pairlist()
+p$a <- 1
+p$a
+p
 
 # To make a "data frame", which is a list of vectors of the same length, column bind, cbind
 # Matrix requires all data with same type. but frame just require each vector.
@@ -28,3 +35,8 @@ nrow(D)
 ncol(D)
 # Accessing one of these vectors, access column name is the same with binded variable name.
 D$year
+
+# use sql in data frame, should install sqldf package at first.
+library(sqldf)
+df <- sqldf("select * from mtcars where carb=1")
+df

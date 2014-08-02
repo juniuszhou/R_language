@@ -17,6 +17,7 @@ d
 # factor
 e <- c(1,2,1,2,3)
 f <- factor(e)
+levels(f)
 ordered(f)
 g <- summary(f)
 g
@@ -33,5 +34,25 @@ rm (list=ls())
 # bool operation ‘FALSE & NA’ is FALSE, ‘TRUE | NA’ is TRUE.
 
 
+a <- c(1,2,3,4)
+length(a)
+mode(a)
+typeof(a)
+storage.mode(a)
 
+mean(a)
+sum(a)
+max(a)
+min(a)
+var(a)
+prod(a)
+# standard 
+sd(a)
+
+which.max(a)
+which.min(a)
+
+# generate vector
+seq(1,100,by=2)
+letters[1:26]
 
