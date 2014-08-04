@@ -1,6 +1,14 @@
 # mean is 3, and 4+1+0+1+4 = 10
 x <- c(1:5)
+x
 y <- c(3,3)
+
+# Why divide the sample variance by N-1
+var(x, use = "pairwise.complete.obs")
+sd(x)
+mean(x)
+
+for()
 
 c(x,y)
 mean(c(x,y))
