@@ -35,3 +35,14 @@ pp <- function(a) {
 apply(x, c(1,2), pp)
 
 # lapply apply to a vector or a list
+
+# if then else
+c <- 2
+if (c > 0) print(c) else print("less than 0")
+ifelse(c>0, print(c) , print("less than 0"))
+
+switch( c, 
+  print("less than 0"), 
+  print("less than 1")
+)
+

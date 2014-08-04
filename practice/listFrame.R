@@ -4,6 +4,7 @@
 # 矢量中的元素只能是基本数据类型，而列表中的元素可以是R中的各种对象。
 # 一个矢量中的元素必须是同一类型，而一个列表中的元素可以是不同种类的对象。
 
+# each item in the list could be different type, different length.
 person <- list(name="payal", x=2, y=9, year=1990)
 person
 # Accessing things inside a list --
@@ -17,6 +18,11 @@ p <- pairlist()
 p$a <- 1
 p$a
 p
+
+a <- c(1,2,3)
+b <- c(4,5,6)
+l <- list(a, b)
+l[1]
 
 # To make a "data frame", which is a list of vectors of the same length, column bind, cbind
 # Matrix requires all data with same type. but frame just require each vector.
@@ -40,3 +46,25 @@ D$year
 library(sqldf)
 df <- sqldf("select * from mtcars where carb=1")
 df
+
+# attach method for frame
+summary(mtcars$mpg)
+plot(mtcars$mpg, mtcars$disp)
+plot(mtcars$mpg, mtcars$wt)
+
+# attach is like import the namespace, then its sub data field can be used 
+# without namespace. then you should take care if mpg already defined before.
+# so with key word is useful here
+attach(mtcars)
+summary(mpg)
+plot(mpg, disp)
+plot(mpg, wt)
+detach(mtcars)
+
+# with 
+with(mtcars, {
+  summary(mpg, disp, wt)
+  plot(mpg, wt)
+})
+
+

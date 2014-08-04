@@ -12,12 +12,17 @@ m
 # _____________________________________________________
 n
 
-
+rnames <- c("row1", "row2", "row3")
+cnames <- c("col1", "col2", "col3", "col4")
 # create matrix
-m1 <- matrix(1:12, nrow=3, ncol=4)
-m1
-# transpose matrix
-t(m1)
+m1 <- matrix(1:12, nrow=3, ncol=4, byrow=TRUE, dimnames=list(rnames, cnames))
 rownames(m1, prefix="rows")
 colnames(m1, prefix="cols")
+
+# matrix 
+# transpose matrix
+m2 <- matrix(1:12, nrow=3, ncol=4, dimnames=list(rnames, cnames))
+rownames(m2, prefix="rows")
+colnames(m2, prefix="cols")
+
 
