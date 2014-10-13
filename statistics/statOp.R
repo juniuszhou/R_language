@@ -1,3 +1,19 @@
+
+# head tail
+vars <- c("mpg", "hp", "wt")
+vars2 <- c("mpg", "hp", "wt", "am")
+mtcars[vars2]
+
+head(mtcars[vars])
+tail(mtcars[vars])
+
+# summary include max min and mean
+summary(mtcars[vars])
+
+# aggerate
+aggregate(mtcars[vars], by=list(am=mtcars$am), mean)
+aggregate(mtcars[vars], by=list(am=mtcars$am), sd)
+
 # mean is 3, and 4+1+0+1+4 = 10
 x <- c(1:5)
 x
