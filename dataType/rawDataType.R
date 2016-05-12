@@ -11,7 +11,8 @@
 # raw	raw	raw
 # _____________________________________________________
 l <- TRUE
-i <- 1
+# if set i as 1 without L, then i is numeric type.
+i <- 1L
 d <- 1.1
 c <- 1+2i
 c <- 'a'
@@ -22,54 +23,31 @@ r[1] <- as.raw(1)
 r[2] <- as.raw(2)
 r
 
-# generate sequence
-a <- 1:10
-a
-b <- seq(1,10,by=0.5)
-b
-c <- rep(2,times=5)
-c
-
 #special  value NA and NaN
 d <- c(1,NA)
 d
 is.na(d)
+
 # in R, 0/0 is NaN, no exception like other language
 e <- 0 / 0
 e
 is.nan(e)
 
-# different vector, each item in vector must be basic type.
-# for R, the index start from 1 other than 0
-x <- c(7,9.8,"ok",FALSE,'a',1+1i)
-x[1]
-x[length(x)]
-
-# named vector
-namedVector <- c(a=1, b=2.1, c=TRUE)
-names(namedVector)
-
-# NULL means object not init yet.
+# NULL means object not init yet. 
+# R语言中，NA代表位置上的值为空，NULL代表连位置都没有，变量为空。
 a <- NULL
 a
-if (a = NULL)
+if (is.null(a))
   print("I am NULL")
-
-# list each item could be any type
-l <- list(c(1,2,3), TRUE, list(1,2,3))
-l
 
 # Promise or lazy evaluation
 m <- "old"
 delayedAssign("x", m)
-#x
+x
 m <- "new"
 x
 
-# factor is enum type in other language
-lv <- c("big", "mid", "small")
-f <- factor(x=c(1,2,3), levels=lv)
-f
+
 
 # matrix from diag, set value for item in diag others are zero.
 diag(1:4)

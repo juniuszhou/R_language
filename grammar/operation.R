@@ -5,13 +5,24 @@ a
 b <- as.integer(a)
 b
 
+# sort a vector by sort vector's index.
+x = c(9, 2, 18, 11)
+indexes = order(x)
+print(x[indexes])
+rev_indexes = rev(order(x))
+print(x[rev_indexes])
+
+# sequence to vector, and index start from 1. support slice operation.
 d <- 0:10
 d[1:11]
-# index could be vector two.
-d[ 2 * 1:5]
 
-# length could be change
-length(d) = 5
+# index could be vector two.
+d <- 0:10
+d[2 * 1:5]
+
+# length could be change. cut if become shorter. put value as NA if become longer.
+d <- 0:10
+length(d) = 15
 d
 
 # factor

@@ -1,28 +1,3 @@
-# _____________________________________________________
-# To make a list "person", actually it is a map.
-
-# 矢量中的元素只能是基本数据类型，而列表中的元素可以是R中的各种对象。
-# 一个矢量中的元素必须是同一类型，而一个列表中的元素可以是不同种类的对象。
-
-# each item in the list could be different type, different length.
-person <- list(name="payal", x=2, y=9, year=1990)
-person
-# Accessing things inside a list --
-person$name
-person$x
-
-q <- list(1,2,3)
-q
-# pairlist
-p <- pairlist()
-p$a <- 1
-p$a
-p
-
-a <- c(1,2,3)
-b <- c(4,5,6)
-l <- list(a, b)
-l[1]
 
 # To make a "data frame", which is a list of vectors of the same length, column bind, cbind
 # Matrix requires all data with same type. but frame just require each vector.
@@ -31,16 +6,35 @@ l[1]
 # R中的数据框相当于SPSS或SAS中的数据集(dataset)。
 # 数据框中的一列，一般来说相当于一个变量；数据框中的一行，一般来说相当于一条记录
 
-# _____________________________________________________
+# list是个筐，什么都可以往里装，包括它自身。
+# 数据框是个二维数组，同列必须同类型，行随意。
+
+# get frame from several vectors
 x <- c(1,2)
 y <- c(TRUE, FALSE )
 year <- 2014:2015
 D <- data.frame(y, year, x)
 D
-nrow(D)
-ncol(D)
+
 # Accessing one of these vectors, access column name is the same with binded variable name.
 D$year
+
+# get how many rows / columns in frame
+nrow(D)
+ncol(D)
+
+# get frame from data of three column vector. the length will be max one.
+# if max one is the times of others
+x <- data.frame(1:6, 1:3, 1:2)
+x
+
+# frame can be linked with frame if rows number are the same
+y <- data.frame(1:6, data.frame(1:6, 7:12))
+y
+
+# access frame via row / column index
+a = data.frame(c1 = c(1), c2 = c(2))
+print(a[1, 1])
 
 # use sql in data frame, should install sqldf package at first.
 library(sqldf)
@@ -60,6 +54,22 @@ summary(mpg)
 plot(mpg, disp)
 plot(mpg, wt)
 detach(mtcars)
+
+# merge rbind cbind and subset
+# merge is inner join. 
+aFrame = data.frame(a = c(1), b = c('1'))
+bFrame = data.frame(a = c(1), b = c('2'))
+print(merge(aFrame, bFrame, by='a'))
+
+# cbind add columns
+cFrame = data.frame(d = c('one'))
+print(cbind(aFrame, cFrame))
+
+# rbind add rows
+print(rbind(aFrame, bFrame))
+
+# subset
+print(subset(aFrame, a > 0))
 
 # with 
 with(mtcars, {

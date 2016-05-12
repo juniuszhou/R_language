@@ -18,6 +18,11 @@ while (x<5){
 for (x in 1:5)
   print(x)
 
+for (y in c(1,2,3)){
+  cat(y)
+  cat("\n")
+}
+
 # switch, x as the index of list('a','b','c')
 for (x in 1:3)
   print(switch(x, 'a','b','c'))
@@ -45,4 +50,12 @@ switch( c,
   print("less than 0"), 
   print("less than 1")
 )
+
+# if in
+a = 1
+if (a %in% c(1,2,3)) {
+  cat(a, '\n')
+}
+
+
 
